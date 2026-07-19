@@ -896,7 +896,8 @@ local Library = { } do
             BackgroundTransparency = 1,
             Position = UDim2.new(0, 10, 0, 10),
             Size = UDim2.new(0, 27, 0, 20),
-            BorderSizePixel = 0
+            BorderSizePixel = 0,
+            ScaleType = Enum.ScaleType.Fit
         })
         ApplyIcon(Items.Logo.Instance, Window.Logo)
 
