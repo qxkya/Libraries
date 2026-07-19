@@ -417,6 +417,16 @@ local Library = { } do
         end
     end
 
+    Library.ChangeTheme = function(Self, Key, Color)
+        if type(Key) ~= "string" or typeof(Color) ~= "Color3" then
+            return
+        end
+
+        Library.Theme[Key] = Color
+        DeriveTheme()
+        Library:ApplyTheme()
+    end
+
     Library.OnHover = function(Self, OnEnter, OnLeave)
         local Object = Self.Instance
         Library:Connect(Object.MouseEnter, OnEnter)
@@ -896,8 +906,7 @@ local Library = { } do
             BackgroundTransparency = 1,
             Position = UDim2.new(0, 10, 0, 10),
             Size = UDim2.new(0, 27, 0, 20),
-            BorderSizePixel = 0,
-            ScaleType = Enum.ScaleType.Fit
+            BorderSizePixel = 0
         })
         ApplyIcon(Items.Logo.Instance, Window.Logo)
 
